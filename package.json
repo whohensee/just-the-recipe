@@ -1,0 +1,30 @@
+{
+	"name": "cooking-site",
+	"private": true,
+	"version": "0.0.1",
+	"type": "module",
+	"scripts": {
+		"dev": "vite dev",
+		"build": "vite build --watch",
+		"preview": "vite preview",
+		"prepare": "svelte-kit sync || echo ''",
+		"format": "prettier --write .",
+		"lint": "prettier --check . && eslint ."
+	},
+	"devDependencies": {
+		"@eslint/compat": "^1.4.0",
+		"@eslint/js": "^9.36.0",
+		"@sveltejs/adapter-auto": "^6.1.0",
+		"@sveltejs/kit": "^2.43.2",
+		"@sveltejs/vite-plugin-svelte": "^6.2.0",
+		"@types/node": "^24",
+		"eslint": "^9.36.0",
+		"eslint-config-prettier": "^10.1.8",
+		"eslint-plugin-svelte": "^3.12.4",
+		"globals": "^16.4.0",
+		"prettier": "^3.6.2",
+		"prettier-plugin-svelte": "^3.4.0",
+		"svelte": "^5.39.5",
+		"vite": "^7.1.7"
+	}
+}
