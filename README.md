@@ -1,7 +1,7 @@
-
 # Just The Recipe
 
 This site, built from the basic Svelte 5 template, will be a simple recipe website, designed to present just the basic tools needed for a recipe with none of the fluff. It will begin as a static site that just presents the information nicely. Then it will evolve to include some more features including:
+
 - shopping list generator
 - CRUD operations
 - user accounts and sessions
