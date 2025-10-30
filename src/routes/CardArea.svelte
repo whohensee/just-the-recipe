@@ -1,11 +1,11 @@
 <script>
 	import Card from './Card.svelte';
-	import { recipes } from "$lib/data/recipes.js";
+	import { recipes } from '$lib/data/recipes.js';
 </script>
 
 <div class="area">
-	{#each recipes as recipe}
-	  <Card recipe={recipe} />
+	{#each recipes as recipe (recipe.slug)}
+		<Card {recipe} />
 	{/each}
 </div>
 

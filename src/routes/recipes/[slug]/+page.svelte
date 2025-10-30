@@ -2,8 +2,8 @@
 	let { data } = $props();
 </script>
 
-{#if data.recipe }
-    <h1>{data.recipe.title}</h1>
+{#if data.recipe}
+	<h1>{data.recipe.title}</h1>
 	<h2>Ingredients</h2>
 	<p>{data.recipe.ingredients}</p>
 	<h2>Instructions</h2>

@@ -1,12 +1,12 @@
 <script>
-	import faviconURL from '$lib/assets/favicon.svg';
+	import { resolve } from '$app/paths';
 	let { recipe } = $props();
 </script>
 
 <div class="card">
 	<img src={recipe.imgURL} alt="food" />
 	<h1>{recipe.title}</h1>
-	<a href="./recipes/{recipe.slug}"><button>View</button></a>
+	<a href={resolve('./recipes/[slug]', { slug: recipe.slug })}><button>View</button></a>
 </div>
 
 <style>

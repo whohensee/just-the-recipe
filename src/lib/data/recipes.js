@@ -1,4 +1,4 @@
-import imgURL from '../assets/favicon.svg'
+import imgURL from '../assets/favicon.svg';
 
 export const recipes = [
 	{
