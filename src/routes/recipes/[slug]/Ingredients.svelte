@@ -5,10 +5,12 @@
 
 <div class="content" style="--bgcolor: {theme.header_color}">
 	<h2>Ingredients</h2>
-	<!-- eslint-disable-next-line svelte/require-each-key -->
-	{#each Object.entries(ingredients) as [ingredient, amount]}
-		<li>{ingredient} : {amount}</li>
-	{/each}
+	<ul>
+		<!-- eslint-disable-next-line svelte/require-each-key -->
+		{#each Object.entries(ingredients) as [ingredient, amount]}
+			<li>{ingredient} : {amount}</li>
+		{/each}
+	</ul>
 </div>
 
 <style>
@@ -22,13 +24,19 @@
 		width: 100%;
 
 		background-color: var(--bgcolor);
+		padding: 2rem;
 	}
 
 	p {
 		width: 100%;
 	}
 
+	ul {
+		margin-top: 1rem;
+	}
+
 	li {
 		list-style-position: inside;
+		margin-top: 0.5rem;
 	}
 </style>

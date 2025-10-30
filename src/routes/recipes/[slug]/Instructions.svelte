@@ -25,13 +25,20 @@
 		width: 100%;
 
 		background-color: var(--bgcolor);
+		padding: 2rem;
 	}
 
 	p {
 		width: 100%;
+		margin-top: 1rem;
+	}
+
+	ol {
+		margin-top: 1rem;
 	}
 
 	li {
 		list-style-position: inside;
+		margin-top: 0.5rem;
 	}
 </style>
