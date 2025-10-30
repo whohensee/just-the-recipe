@@ -5,7 +5,7 @@
 
 <div class="area">
 	{#each recipes as recipe}
-	  <Card title={recipe.title} imgURL={recipe.imgURL} />
+	  <Card recipe={recipe} />
 	{/each}
 </div>
 

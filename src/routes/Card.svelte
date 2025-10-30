@@ -1,12 +1,12 @@
 <script>
 	import faviconURL from '$lib/assets/favicon.svg';
-	let { title="Recipe Title", imgURL } = $props();
+	let { recipe } = $props();
 </script>
 
 <div class="card">
-	<img src={imgURL} alt="food" />
-	<h1>{title}</h1>
-	<button>View</button>
+	<img src={recipe.imgURL} alt="food" />
+	<h1>{recipe.title}</h1>
+	<a href="./recipes/{recipe.slug}"><button>View</button></a>
 </div>
 
 <style>
