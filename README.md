@@ -7,6 +7,7 @@ This site, built from the basic Svelte 5 template, will be a simple recipe websi
 - user accounts and sessions
 
 Fixes:
+
 - Prevent long names from bleeding out in the cards (e.g. Quinoaoaoaoaoaoaoa)
 
 # sv

@@ -26,6 +26,7 @@
 	}
 
 	:global(body) {
-		background-color: #1f0033;
+		/* background-color: #1f0033; */
+		background-color: white;
 	}
 </style>

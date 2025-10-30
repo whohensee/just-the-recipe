@@ -1,9 +1,10 @@
 <script>
 	import { resolve } from '$app/paths';
+	import { theme } from '$lib/themes/basicTheme';
 	let { recipe } = $props();
 </script>
 
-<div class="card">
+<div class="card" style="--card-color: {theme.content_color}">
 	<img src={recipe.imgURL} alt="food" />
 	<h1>{recipe.title}</h1>
 	<a href={resolve('./recipes/[slug]', { slug: recipe.slug })}><button>View</button></a>
@@ -14,7 +15,7 @@
 		display: flex;
 		flex-direction: column;
 		max-width: 200px;
-		background-color: #4a5240;
+		background-color: var(--card-color);
 		padding: 1rem;
 		align-items: center;
 		gap: 0.5rem;
