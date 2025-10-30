@@ -1,14 +1,12 @@
 <script>
 	import Card from './Card.svelte';
+	import { recipes } from "$lib/data/recipes.js";
 </script>
 
 <div class="area">
-	<Card />
-	<Card />
-	<Card />
-	<Card />
-	<Card />
-	<Card />
+	{#each recipes as recipe}
+	  <Card title={recipe.title} imgURL={recipe.imgURL} />
+	{/each}
 </div>
 
 <style>
