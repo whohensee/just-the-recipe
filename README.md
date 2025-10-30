@@ -6,6 +6,9 @@ This site, built from the basic Svelte 5 template, will be a simple recipe websi
 - CRUD operations
 - user accounts and sessions
 
+Fixes:
+- Prevent long names from bleeding out in the cards (e.g. Quinoaoaoaoaoaoaoa)
+
 # sv
 
 Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
