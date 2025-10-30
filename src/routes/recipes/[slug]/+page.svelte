@@ -2,14 +2,15 @@
 	let { data } = $props();
 	import Instructions from './Instructions.svelte';
 	import Ingredients from './Ingredients.svelte';
+	import { theme } from '$lib/themes/basicTheme';
 </script>
 
 {#if data.recipe}
 	<div class="wrapper">
-		<h1>{data.recipe.title}</h1>
+		<h1 style="--bg-color: {theme.header_color}">{data.recipe.title}</h1>
 		<div class="content">
-			<Instructions instructionText={data.recipe.instructions} />
-			<Ingredients ingredientText={data.recipe.ingredients} />
+			<Instructions instructions={data.recipe.instructions} />
+			<Ingredients ingredients={data.recipe.ingredients} />
 		</div>
 	</div>
 {:else}
@@ -27,5 +28,12 @@
 		justify-content: space-between;
 		max-width: 1000px;
 		width: 100%;
+	}
+
+	h1 {
+		background-color: var(--bg-color);
+		padding: 1rem 2rem;
+		border-radius: 8px;
+		margin-bottom: 1rem;
 	}
 </style>

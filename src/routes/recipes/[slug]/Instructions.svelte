@@ -1,11 +1,17 @@
 <script>
-	let { instructionText } = $props();
+	let { instructions } = $props();
 	import { theme } from '$lib/themes/basicTheme';
 </script>
 
 <div class="content" style="--bgcolor: {theme.header_color}">
 	<h2>Instructions</h2>
-	<p>{instructionText}</p>
+	<p>{instructions.intro}</p>
+	<ol>
+		<!-- eslint-disable-next-line svelte/require-each-key -->
+		{#each instructions.steps as step}
+			<li>{step}</li>
+		{/each}
+	</ol>
 </div>
 
 <style>
@@ -23,5 +29,9 @@
 
 	p {
 		width: 100%;
+	}
+
+	li {
+		list-style-position: inside;
 	}
 </style>

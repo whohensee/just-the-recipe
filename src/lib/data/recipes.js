@@ -4,9 +4,21 @@ export const recipes = [
 	{
 		title: 'Masala Lentils',
 		slug: 'masala-lentils',
-		instructions: 'lots more stuff',
+		instructions: {
+			intro:
+				"This is a super easy masala lentil recipe that you can make a lot of with very low effort. It's tasty too!",
+			steps: [
+				'Get some Masala',
+				"Get some lentils and also maybe a whole bunch of lentils, and while you're at it grab a lot more lentils just to be safe, you know?",
+				'Masala up those lentils'
+			]
+		},
 		imgURL: imgURL,
-		ingredients: 'lots of stuff'
+		ingredients: {
+			'red onions': '1',
+			masalas: '10',
+			lentils: 'One cup'
+		}
 	},
 	{
 		title: 'Rice and Beans',

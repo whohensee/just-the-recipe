@@ -1,11 +1,14 @@
 <script>
-	let { ingredientText } = $props();
+	let { ingredients } = $props();
 	import { theme } from '$lib/themes/basicTheme';
 </script>
 
 <div class="content" style="--bgcolor: {theme.header_color}">
 	<h2>Ingredients</h2>
-	<p>{ingredientText}</p>
+	<!-- eslint-disable-next-line svelte/require-each-key -->
+	{#each Object.entries(ingredients) as [ingredient, amount]}
+		<li>{ingredient} : {amount}</li>
+	{/each}
 </div>
 
 <style>
@@ -23,5 +26,9 @@
 
 	p {
 		width: 100%;
+	}
+
+	li {
+		list-style-position: inside;
 	}
 </style>
