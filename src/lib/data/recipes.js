@@ -1,4 +1,3 @@
-
 export const recipes = [
 	{
 		title: 'Masala Lentils',

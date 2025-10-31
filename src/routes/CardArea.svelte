@@ -1,6 +1,6 @@
 <script>
 	import Card from './Card.svelte';
-	import { recipes } from '$lib/data/recipes.js';
+	let { recipes } = $props();
 </script>
 
 <div class="area">
