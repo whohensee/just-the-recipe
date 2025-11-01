@@ -32,7 +32,7 @@ try {
 			'title text NOT NULL,' +
 			'slug text NOT NULL,' +
 			'instructions jsonb NOT NULL,' +
-			'imgurl text NOT NULL,' +
+			'imgurl text,' +
 			'ingredients jsonb NOT NULL )'
 	);
 } catch {
