@@ -21,7 +21,8 @@ export const actions = {
 		const q = 'INSERT INTO recipes(title, slug, instructions, ingredients) VALUES ($1, $2, $3, $4)';
 		const values = [
 			data.get('recipe-name'),
-			data.get('recipe-name'), // This needs to be a find and replace whitespace with dashes
+			// I think resolve() actually removes the need to replace spaces in slug
+			data.get('recipe-name'),
 			JSON.stringify(instructions),
 			JSON.stringify(ingredients)
 		];

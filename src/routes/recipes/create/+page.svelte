@@ -15,10 +15,10 @@
 		background-color: var(--bg-color);
 	}
 
-	h1 {
+	/* h1 {
 		background-color: var(--bg-color);
 		padding: 1rem 2rem;
 		border-radius: 8px;
 		margin-bottom: 1rem;
-	}
+	} */
 </style>

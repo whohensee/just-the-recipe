@@ -9,7 +9,7 @@
 
 	<div class="question">
 		<label for="recipe-name">Recipe Name</label>
-		<input name="recipe-name" type="text" />
+		<input name="recipe-name" type="text" autocomplete="off" />
 	</div>
 
 	<div class="question">
@@ -41,10 +41,10 @@
 	{#each ingredients as step (step)}
 		<div class="question">
 			<label for="ingred-{step}">ingredient</label>
-			<input type="text" name="ingred-{step}" />
+			<input type="text" name="ingred-{step}" autocomplete="off" />
 
 			<label for="ingred-amount-{step}">amount</label>
-			<input type="text" name="ingred-amount-{step}" />
+			<input type="text" name="ingred-amount-{step}" autocomplete="off" />
 		</div>
 	{/each}
 
