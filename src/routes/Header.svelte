@@ -7,6 +7,7 @@
 	<nav>
 		<div class="content">
 			<h1><a href={resolve('/')}>Just The Recipe</a></h1>
+			<h2><a href={resolve('/recipes/create')}>New Recipe</a></h2>
 			<p>A site by William Hohensee</p>
 		</div>
 	</nav>
