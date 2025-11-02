@@ -4,7 +4,6 @@ import { connectToDB } from '$lib/database/db';
 
 export async function load() {
 	const client = await connectToDB();
-
 	const q1 = await client.query(
 		'SELECT title, slug, instructions, imgurl, ingredients FROM recipes'
 	);
