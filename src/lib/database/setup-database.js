@@ -30,7 +30,7 @@ try {
 		'CREATE TABLE recipes (' +
 			'id int GENERATED ALWAYS AS IDENTITY,' +
 			'title text NOT NULL,' +
-			'slug text NOT NULL,' +
+			'slug text UNIQUE NOT NULL,' +
 			'instructions jsonb NOT NULL,' +
 			'imgurl text,' +
 			'ingredients jsonb NOT NULL )'
