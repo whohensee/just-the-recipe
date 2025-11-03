@@ -1,4 +1,4 @@
-export async function checkIfSlugUnique(client, slug) {
+export async function checkSlugBeforeCreate(client, slug) {
 	if (slug === '') {
 		throw new Error('slug (title) must not be empty');
 	}
@@ -14,4 +14,24 @@ export async function checkIfSlugUnique(client, slug) {
 		console.log('Slug is okay');
 		return true;
 	}
+}
+
+export async function checkTitleBeforeCreate(client, target) {
+	if (target === '') {
+		throw new Error('Title must not be empty');
+	}
+
+	return true;
+}
+
+export async function checkInstructionsBeforeCreate(client, target) {
+	const targetobj = JSON.parse(target);
+	if (targetobj.intro === '') {
+		throw new Error('Description must not be empty');
+	}
+	if (targetobj.steps.length === 0) {
+		throw new Error('Must be at least one instruction step');
+	}
+
+	return true;
 }

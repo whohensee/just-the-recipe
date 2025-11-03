@@ -1,10 +1,23 @@
 import { fail, redirect } from '@sveltejs/kit';
 import { connectToDB } from '$lib/database/db';
-import { checkIfSlugUnique } from '../../database/database';
+import {
+	checkSlugBeforeCreate,
+	checkTitleBeforeCreate,
+	checkInstructionsBeforeCreate
+} from '../../database/database';
 
 async function validateCreate(client, creationValues) {
 	let isOK = true;
-	isOK = await checkIfSlugUnique(client, creationValues[1]);
+	// this can be refactored to feel more clean
+	if (isOK) {
+		isOK = await checkSlugBeforeCreate(client, creationValues[1]);
+	}
+	if (isOK) {
+		isOK = await checkTitleBeforeCreate(client, creationValues[0]);
+	}
+	if (isOK) {
+		isOK = await checkInstructionsBeforeCreate(client, creationValues[2]);
+	}
 	return isOK;
 }
 
