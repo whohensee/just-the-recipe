@@ -1,10 +1,11 @@
 <script>
 	import { theme } from '$lib/themes/basicTheme';
 	import FormCreate from './FormCreate.svelte';
+	let { form } = $props();
 </script>
 
 <div class="wrapper" style="--bg-color: {theme.header_color}">
-	<FormCreate />
+	<FormCreate {form} />
 </div>
 
 <style>

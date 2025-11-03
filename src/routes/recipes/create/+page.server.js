@@ -1,4 +1,12 @@
+import { fail } from '@sveltejs/kit';
 import { connectToDB } from '$lib/database/db';
+import { checkIfSlugUnique } from '../../database/database';
+
+async function validateCreate(client, creationValues) {
+	let isOK = true;
+	isOK = await checkIfSlugUnique(client, creationValues[1]);
+	return isOK;
+}
 
 export const actions = {
 	create: async ({ request }) => {
@@ -27,9 +35,20 @@ export const actions = {
 			JSON.stringify(ingredients)
 		];
 
-		console.log('Trying to insert');
-		await client.query(q, values);
-		console.log('Actually inserted??');
+		try {
+			await validateCreate(client, values);
+
+			console.log('Trying to insert');
+			await client.query(q, values);
+			console.log('Actually inserted??');
+		} catch (error) {
+			client.release();
+			console.log('Returning fail');
+			return fail(422, {
+				title: values[0],
+				error: error.message
+			});
+		}
 		client.release();
 	}
 };
