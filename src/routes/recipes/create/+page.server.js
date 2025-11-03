@@ -1,4 +1,4 @@
-import { fail } from '@sveltejs/kit';
+import { fail, redirect } from '@sveltejs/kit';
 import { connectToDB } from '$lib/database/db';
 import { checkIfSlugUnique } from '../../database/database';
 
@@ -50,5 +50,6 @@ export const actions = {
 			});
 		}
 		client.release();
+		redirect(303, '/');
 	}
 };
