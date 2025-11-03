@@ -28,6 +28,12 @@
 			instructions.push(instructions.length);
 		}}>Add Step</button
 	>
+	<button
+		type="button"
+		onclick={() => {
+			instructions.pop(instructions.length);
+		}}>Remove Step</button
+	>
 
 	{#each instructions as step (step)}
 		<div class="question">
@@ -41,6 +47,12 @@
 		onclick={() => {
 			ingredients.push(ingredients.length);
 		}}>Add Ingredient</button
+	>
+	<button
+		type="button"
+		onclick={() => {
+			ingredients.pop(ingredients.length);
+		}}>Remove Ingredient</button
 	>
 
 	{#each ingredients as step (step)}
