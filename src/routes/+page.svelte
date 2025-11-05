@@ -1,9 +1,10 @@
 <script>
 	import CardArea from './CardArea.svelte';
+	let { data } = $props();
 </script>
 
 <div class="area">
-	<CardArea />
+	<CardArea recipes={data.recipes} />
 </div>
 
 <style>
