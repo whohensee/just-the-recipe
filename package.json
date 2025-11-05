@@ -5,7 +5,8 @@
 	"type": "module",
 	"scripts": {
 		"dev": "vite dev",
-		"build": "vite build --watch",
+		// "build": "vite build --watch",
+		"build": "vite build",
 		"start": "node .svelte-kit/output/server/index.js",
 		"preview": "vite preview",
 		"prepare": "svelte-kit sync || echo ''",
