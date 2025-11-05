@@ -1,12 +1,12 @@
 <script>
 	import { theme } from '$lib/themes/basicTheme';
-	import FormCreate from './FormCreate.svelte';
-	let { form } = $props();
-	let action = 'create';
+	import FormCreate from '../../create/FormCreate.svelte';
+	let { form, data } = $props();
+	let action = 'update';
 </script>
 
 <div class="wrapper" style="--bg-color: {theme.header_color}">
-	<FormCreate {form} {action} />
+	<FormCreate {form} {action} recipe={data.recipe} />
 </div>
 
 <style>
@@ -16,11 +16,4 @@
 		align-items: center;
 		background-color: var(--bg-color);
 	}
-
-	/* h1 {
-		background-color: var(--bg-color);
-		padding: 1rem 2rem;
-		border-radius: 8px;
-		margin-bottom: 1rem;
-	} */
 </style>
