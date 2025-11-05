@@ -29,6 +29,11 @@
 	{/if}
 
 	<div class="question">
+		<label for="create-pwd">Creation Password</label>
+		<input name="create-pwd" type="password" autocomplete="off" required />
+	</div>
+
+	<div class="question">
 		<label for="recipe-name">Recipe Name</label>
 		<input name="recipe-name" type="text" autocomplete="off" value={recipe?.title ?? ''} required />
 	</div>

@@ -1,5 +1,6 @@
 import { fail, redirect } from '@sveltejs/kit';
 import { connectToDB } from '$lib/database/db';
+import { CREATE_PWD } from '$env/static/private';
 import {
 	checkSlugBeforeCreate,
 	checkTitleBeforeCreate,
@@ -24,6 +25,19 @@ async function validateCreate(client, creationValues) {
 export const actions = {
 	create: async ({ request }) => {
 		const data = await request.formData();
+
+		// check the creation password
+		try {
+			if (data.get('create-pwd') != CREATE_PWD) {
+				throw new Error('Wrong creation password');
+			}
+		} catch (error) {
+			return fail(422, {
+				title: data.get('recipe-name'),
+				error: error.message
+			});
+		}
+
 		// create the jsonb objects
 		console.log(data);
 		const instructions = {};
