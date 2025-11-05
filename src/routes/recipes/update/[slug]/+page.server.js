@@ -16,7 +16,7 @@ async function validateCreate(client, creationValues) {
 export async function load({ params }) {
 	const client = await connectToDB();
 	const q1 = await client.query(
-		'SELECT title, slug, instructions, imgurl, ingredients FROM recipes'
+		'SELECT id, title, slug, instructions, imgurl, ingredients FROM recipes'
 	);
 	let recipes = q1.rows ?? [];
 	client.release();
@@ -50,13 +50,14 @@ export const actions = {
 		const client = await connectToDB();
 		// const q = 'INSERT INTO recipes(title, slug, instructions, ingredients) VALUES ($1, $2, $3, $4)';
 		const q =
-			'UPDATE recipes SET title = $1, slug = $2, instructions = $3, ingredients = $4 WHERE slug = $2';
+			'UPDATE recipes SET title = $1, slug = $2, instructions = $3, ingredients = $4 WHERE id = $5';
 		const values = [
 			data.get('recipe-name'),
 			// I think resolve() actually removes the need to replace spaces in slug
 			data.get('recipe-name'),
 			JSON.stringify(instructions),
-			JSON.stringify(ingredients)
+			JSON.stringify(ingredients),
+			data.get('recipe-id')
 		];
 
 		try {
