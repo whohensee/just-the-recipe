@@ -5,7 +5,7 @@
 </script>
 
 <div class="card" style="--card-color: {theme.content_color}">
-	<img src={recipe.imgurl} alt="food" />
+	<img src="/favicon.svg" alt="food" />
 	<h1>{recipe.title}</h1>
 	<a href={resolve('./recipes/[slug]', { slug: recipe.slug })}><button>View</button></a>
 </div>
