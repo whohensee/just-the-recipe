@@ -5,22 +5,36 @@
 	let action = 'create';
 </script>
 
-<div class="wrapper" style="--bg-color: {theme.header_color}">
-	<FormCreate {form} {action} />
+<div class="content" style="--bg-color: {theme.header_color}">
+	<div class="title">
+		<h1>Recipe Creation Page</h1>
+	</div>
+
+	<div class="formWrapper">
+		<FormCreate {form} {action} />
+	</div>
 </div>
 
 <style>
-	.wrapper {
+	.content {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+	}
+	.formWrapper {
 		display: flex;
 		flex-direction: column;
 		align-items: center;
 		background-color: var(--bg-color);
+		min-width: 1000px;
 	}
 
-	/* h1 {
+	.title {
 		background-color: var(--bg-color);
-		padding: 1rem 2rem;
-		border-radius: 8px;
+		text-align: center;
+		width: fit-content;
+		padding: 0.5rem 1rem 0.5rem 1rem;
 		margin-bottom: 1rem;
-	} */
+		border: 2px solid white;
+	}
 </style>

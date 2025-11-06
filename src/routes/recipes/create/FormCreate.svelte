@@ -1,4 +1,5 @@
 <script>
+	import { theme } from '$lib/themes/basicTheme';
 	// a deeply reactive array, ideally
 	let instructions = $state([0]);
 	let ingredients = $state([0]);
@@ -21,15 +22,17 @@
 	}
 </script>
 
-<form method="POST" action="?/{action}">
-	<h1>{action} a recipe</h1>
-
+<form
+	method="POST"
+	action="?/{action}"
+	style="--lightpurple: {theme.header_color}; --grey: #B8B8B8"
+>
 	{#if form?.error}
 		<p class="error">{form.error}</p>
 	{/if}
 
 	<div class="question">
-		<label for="create-pwd">Creation Password</label>
+		<label for="create-pwd">Admin Password</label>
 		<input name="create-pwd" type="password" autocomplete="off" required />
 	</div>
 
@@ -39,64 +42,86 @@
 	</div>
 
 	<div class="question">
-		<label for="recipe-blurb">Recipe Paragraph</label>
-		<textarea name="recipe-blurb" value={recipe?.instructions.intro ?? ''} required></textarea>
+		<label for="recipe-blurb">Recipe Description</label>
+		<textarea
+			name="recipe-blurb"
+			value={recipe?.instructions.intro ?? ''}
+			style:height="6rem"
+			required
+		></textarea>
 	</div>
 
-	<button
-		type="button"
-		onclick={() => {
-			instructions.push(instructions.length);
-		}}>Add Step</button
-	>
-	<button
-		type="button"
-		onclick={() => {
-			instructions.pop(instructions.length);
-		}}>Remove Step</button
-	>
+	<div class="question">
+		<p class="label">Instructions</p>
 
-	{#each instructions as step, i (step)}
-		<div class="question">
-			<label for="step-{step}">Step {step.id}</label>
-			<textarea name="step-{step}" value={recipe?.instructions.steps[i] ?? ''} required></textarea>
+		<div class="buttonHolder">
+			<button
+				type="button"
+				onclick={() => {
+					instructions.push(instructions.length);
+				}}>Add</button
+			>
+			<button
+				type="button"
+				onclick={() => {
+					instructions.pop(instructions.length);
+				}}>Remove</button
+			>
 		</div>
-	{/each}
+		{#each instructions as step, i (step)}
+			<div class="question">
+				<label class="sublabel" for="step-{step}">Step {i + 1}{step.id}</label>
+				<textarea name="step-{step}" value={recipe?.instructions.steps[i] ?? ''} required
+				></textarea>
+			</div>
+		{/each}
+	</div>
 
-	<button
-		type="button"
-		onclick={() => {
-			ingredients.push(ingredients.length);
-		}}>Add Ingredient</button
-	>
-	<button
-		type="button"
-		onclick={() => {
-			ingredients.pop(ingredients.length);
-		}}>Remove Ingredient</button
-	>
+	<div class="question">
+		<p class="label">Ingredients</p>
 
-	{#each ingredients as step, i (step)}
-		<div class="question">
-			<label for="ingred-{step}">ingredient</label>
-			<input
-				type="text"
-				name="ingred-{step}"
-				autocomplete="off"
-				value={recipe ? Object.keys(recipe.ingredients)[i] : ''}
-				required
-			/>
-
-			<label for="ingred-amount-{step}">amount</label>
-			<input
-				type="text"
-				name="ingred-amount-{step}"
-				autocomplete="off"
-				value={recipe ? Object.values(recipe.ingredients)[i] : ''}
-				required
-			/>
+		<div class="buttonHolder">
+			<button
+				type="button"
+				onclick={() => {
+					ingredients.push(ingredients.length);
+				}}>Add</button
+			>
+			<button
+				type="button"
+				onclick={() => {
+					ingredients.pop(ingredients.length);
+				}}>Remove</button
+			>
 		</div>
-	{/each}
+
+		{#each ingredients as step, i (step)}
+			<div class="subquestionHolder">
+				<div class="subquestion">
+					<label class="sublabel" for="ingred-{step}">ingredient</label>
+					<input
+						type="text"
+						class="ingredients"
+						name="ingred-{step}"
+						autocomplete="off"
+						value={recipe ? Object.keys(recipe.ingredients)[i] : ''}
+						required
+					/>
+				</div>
+				<div class="subquestion">
+					<label class="sublabel" for="ingred-amount-{step}">amount</label>
+					<input
+						type="text"
+						class="ingredients"
+						name="ingred-amount-{step}"
+						autocomplete="off"
+						value={recipe ? Object.values(recipe.ingredients)[i] : ''}
+						required
+					/>
+				</div>
+			</div>
+		{/each}
+	</div>
 
 	<input type="hidden" name="instruction-count" value={instructions.length} />
 	<input type="hidden" name="ingredient-count" value={ingredients.length} />
@@ -110,9 +135,74 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		width: 100%;
 	}
-
 	.error {
 		color: red;
+	}
+
+	.question {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin: 1rem 0rem;
+		width: 100%;
+	}
+
+	input,
+	textarea {
+		background-color: var(--grey);
+		border: 0px;
+		border-radius: 8px;
+		font-size: large;
+		padding: 0.25rem 1rem;
+		text-align: center;
+		width: 500px;
+	}
+
+	textarea {
+		resize: vertical;
+	}
+
+	label,
+	.label {
+		font-size: xx-large;
+	}
+
+	label.sublabel {
+		font-size: large;
+	}
+
+	.buttonHolder {
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+		width: 250px;
+	}
+
+	.subquestionHolder {
+		flex-direction: row;
+		display: flex;
+		gap: 1rem;
+	}
+	.subquestion {
+		display: flex;
+		flex-direction: column;
+		margin: 0.5rem 0rem;
+		width: 200px;
+		flex: 1 0 350px;
+	}
+
+	input.ingredients {
+		width: 100%;
+		text-align: left;
+	}
+	button {
+		flex: 1;
+		padding: 0.5rem 0.25rem;
+		background-color: var(--grey);
+		border: 2px solid white;
+		border-radius: 8px;
+		font-size: large;
 	}
 </style>
