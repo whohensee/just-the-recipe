@@ -25,6 +25,8 @@
 
 		background-color: var(--bgcolor);
 		padding: 2rem;
+
+		border: 2px solid white;
 	}
 
 	p {
