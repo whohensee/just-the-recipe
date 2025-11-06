@@ -19,16 +19,21 @@
 {#if data.recipe}
 	<div class="wrapper">
 		<h1 style="--bg-color: {theme.header_color}">{data.recipe.title}</h1>
-		<a href={resolve('/recipes/update/[slug]', { slug: data.recipe.slug })}>
-			<button type="button" class="update">Update</button>
-		</a>
-		<form method="POST" action="?/delete" class="deletion" id="deleteform">
-			<input type="hidden" name="recipe-id" value={data.recipe.id} />
-			{#if confirmDelete}
-				<input type="text" name="pwd" value={deletion_pwd} autocomplete="off" />
-			{/if}
-			<button type="button" class="delete" onclick={deleteButton}>Delete</button>
-		</form>
+		<div class="buttonHolder" style="--grey: #B8B8B8">
+			<a href={resolve('/recipes/update/[slug]', { slug: data.recipe.slug })}>
+				<button type="button" class="update">Update</button>
+			</a>
+			<form method="POST" action="?/delete" class="deletion" id="deleteform">
+				<input type="hidden" name="recipe-id" value={data.recipe.id} />
+				<button type="button" class="delete" onclick={deleteButton}>Delete</button>
+				{#if confirmDelete}
+					<div class="pwdHolder">
+						<label for="pwd" style:color="white">Admin Password</label>
+						<input type="password" name="pwd" value={deletion_pwd} autocomplete="off" />
+					</div>
+				{/if}
+			</form>
+		</div>
 		<div class="content">
 			<Instructions instructions={data.recipe.instructions} />
 			<Ingredients ingredients={data.recipe.ingredients} />
@@ -43,6 +48,7 @@
 		display: flex;
 		flex-direction: column;
 		align-items: center;
+		gap: 1rem;
 	}
 	.content {
 		display: flex;
@@ -56,5 +62,32 @@
 		padding: 1rem 2rem;
 		border-radius: 8px;
 		margin-bottom: 1rem;
+	}
+
+	.buttonHolder {
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+		width: 250px;
+	}
+
+	button {
+		flex: 1;
+		padding: 0.5rem 0.25rem;
+		background-color: var(--grey);
+		border: 2px solid white;
+		border-radius: 8px;
+		font-size: large;
+	}
+
+	.deletion {
+		display: flex;
+		align-items: center;
+	}
+
+	.pwdHolder {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
 	}
 </style>
