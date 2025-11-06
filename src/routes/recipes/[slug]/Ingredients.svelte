@@ -5,12 +5,22 @@
 
 <div class="content" style="--bgcolor: {theme.header_color}">
 	<h2>Ingredients</h2>
-	<ul>
-		<!-- eslint-disable-next-line svelte/require-each-key -->
-		{#each Object.entries(ingredients) as [ingredient, amount]}
-			<li>{ingredient} : {amount}</li>
-		{/each}
-	</ul>
+
+	<table>
+		<thead>
+			<tr>
+			</tr>
+		</thead>
+		<tbody>
+			<!-- eslint-disable-next-line svelte/require-each-key -->
+			{#each Object.entries(ingredients) as [ingredient, amount]}
+				<tr>
+					<td>{ingredient}</td>
+					<td>{amount}</td>
+				</tr>
+			{/each}
+		</tbody>
+	</table>
 </div>
 
 <style>
@@ -29,6 +39,9 @@
 		border: 2px solid white;
 	}
 
+	h2 {
+		font-size: xx-large;
+	}
 	p {
 		width: 100%;
 	}
@@ -40,5 +53,20 @@
 	li {
 		list-style-position: inside;
 		margin-top: 0.5rem;
+	}
+
+	table,
+	th,
+	td {
+		width: 100%;
+		border: 1px solid black;
+		text-align: left;
+		font-size: larger;
+		border-collapse: collapse;
+		padding: 0rem 1rem;
+	}
+
+	table {
+		table-layout: fixed;
 	}
 </style>

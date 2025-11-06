@@ -30,17 +30,24 @@
 		border: 2px solid white;
 	}
 
+	h2 {
+		font-size: xx-large;
+	}
+
 	p {
 		width: 100%;
 		margin-top: 1rem;
+		font-size: larger;
 	}
 
 	ol {
 		margin-top: 1rem;
+		width: 100%;
 	}
 
 	li {
 		list-style-position: inside;
 		margin-top: 0.5rem;
+		font-size: larger;
 	}
 </style>
