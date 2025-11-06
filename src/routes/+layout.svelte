@@ -7,6 +7,7 @@
 
 <svelte:head>
 	<link rel="icon" href={favicon} />
+	<title>Just The Recipe</title>
 </svelte:head>
 
 <Header />
@@ -28,4 +29,11 @@
 	:global(body) {
 		background-color: #1f0033;
 	}
+
+	/* :global(a:link),
+	:global(a:visited) {
+		text-decoration: inherit;
+		color: inherit;
+		cursor: auto;
+	} */
 </style>

@@ -8,8 +8,7 @@
 
 	<table>
 		<thead>
-			<tr>
-			</tr>
+			<tr> </tr>
 		</thead>
 		<tbody>
 			<!-- eslint-disable-next-line svelte/require-each-key -->
