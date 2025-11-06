@@ -2,14 +2,6 @@ import { Pool } from 'pg';
 import 'dotenv/config';
 import { recipes } from '../data/recipes.js';
 
-// const pool = new Pool({
-// 	database: process.env.DB_DBNAME,
-// 	user: process.env.DB_USER,
-// 	host: process.env.DB_HOST,
-// 	port: process.env.DB_PORT,
-// 	password: process.env.DB_PWD
-// });
-
 const pool = new Pool({
 	connectionString: process.env.RAILWAY_DB_CONN_STRING
 });
