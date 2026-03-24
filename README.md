@@ -10,6 +10,8 @@ Just The Recipe is a straightforward, fully functional recipe-sharing website bu
 
 Feel free to explore the site using the link at the top of this document.
 
+This project is coded entirely by hand, with zero usage of AI for any aspect of development, including but not limited to code-generation, image-generation, filler text, or inspiration.
+
 Some interesting features that have been implemented are:
 
 - CRUD operations.
