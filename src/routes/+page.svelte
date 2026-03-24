@@ -1,6 +1,9 @@
-<script>
+<script lang="ts">
+	import type { PageData } from './$types';
 	import CardArea from './CardArea.svelte';
-	let { data } = $props();
+	let { data }: {data: PageData} = $props();
+
+
 </script>
 
 <div class="area">

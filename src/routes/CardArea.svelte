@@ -1,6 +1,11 @@
-<script>
+<script lang="ts">
+	import type { recipe } from '$lib/types';
 	import Card from './Card.svelte';
-	let { recipes } = $props();
+
+	interface Props {
+		recipes: recipe[];
+	}
+	let { recipes }: Props = $props();
 </script>
 
 <div class="area">

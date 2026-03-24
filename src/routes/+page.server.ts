@@ -1,4 +1,5 @@
 import { connectToDB } from '$lib/database/db';
+import type { recipe } from '$lib/types';
 
 // connect to db and form the recipes object
 
@@ -7,7 +8,7 @@ export async function load() {
 	const q1 = await client.query(
 		'SELECT title, slug, instructions, imgurl, ingredients FROM recipes'
 	);
-	let recipes = q1.rows ?? [];
+	let recipes: recipe[] = q1.rows ?? [];
 	client.release();
 	return {
 		recipes
