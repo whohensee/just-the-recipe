@@ -49,7 +49,7 @@ export const actions = {
 
 		const ingredients = {};
 		for (let i = 0; i < Number(data.get('ingredient-count')); i++) {
-			ingredients[Number(data.get('ingred-' + i))] = data.get('ingred-amount-' + i);
+			ingredients[String(data.get('ingred-' + i))] = data.get('ingred-amount-' + i);
 		}
 
 		const client = await connectToDB();

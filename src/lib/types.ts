@@ -1,4 +1,5 @@
 export interface recipe {
+	id: string;
 	title: string;
 	slug: string;
 	instructions: instructions;

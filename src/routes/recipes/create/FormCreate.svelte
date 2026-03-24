@@ -133,6 +133,8 @@
 
 	<input type="number" hidden name="instruction-count" value={instructions.length} />
 	<input type="number" hidden name="ingredient-count" value={ingredients.length} />
+	<input type="hidden" name="recipe-id" value={recipe?.id ?? ''} />
+
 
 	<button>Submit</button>
 </form>

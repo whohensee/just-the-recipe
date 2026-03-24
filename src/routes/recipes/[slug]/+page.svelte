@@ -25,6 +25,7 @@
 				<button type="button" class="update">Update</button>
 			</a>
 			<form method="POST" action="?/delete" class="deletion" id="deleteform">
+				<input type="hidden" name="recipe-id" value={data.recipe.id} />
 				<button type="button" class="delete" onclick={deleteButton}>Delete</button>
 				{#if confirmDelete}
 					<div class="pwdHolder">
