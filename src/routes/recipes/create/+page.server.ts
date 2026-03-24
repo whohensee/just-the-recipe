@@ -42,14 +42,14 @@ export const actions = {
 		console.log(data);
 		const instructions = {};
 		instructions['steps'] = [];
-		for (let i = 0; i < data.get('instruction-count'); i++) {
+		for (let i = 0; i < Number(data.get('instruction-count')); i++) {
 			instructions['steps'].push(data.get('step-' + i));
 		}
 		instructions['intro'] = data.get('recipe-blurb');
 
 		const ingredients = {};
-		for (let i = 0; i < data.get('ingredient-count'); i++) {
-			ingredients[data.get('ingred-' + i)] = data.get('ingred-amount-' + i);
+		for (let i = 0; i < Number(data.get('ingredient-count')); i++) {
+			ingredients[Number(data.get('ingred-' + i))] = data.get('ingred-amount-' + i);
 		}
 
 		const client = await connectToDB();

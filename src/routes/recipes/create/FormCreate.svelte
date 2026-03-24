@@ -131,8 +131,8 @@
 		{/each}
 	</div>
 
-	<input type="hidden" name="instruction-count" value={instructions.length} />
-	<input type="hidden" name="ingredient-count" value={ingredients.length} />
+	<input type="number" hidden name="instruction-count" value={instructions.length} />
+	<input type="number" hidden name="ingredient-count" value={ingredients.length} />
 
 	<button>Submit</button>
 </form>
