@@ -8,7 +8,7 @@ export async function load({ params }) {
 	const q1 = await client.query(
 		'SELECT id, title, slug, instructions, imgurl, ingredients FROM recipes'
 	);
-	let recipes = q1.rows ?? [];
+	const recipes = q1.rows ?? [];
 	client.release();
 
 	// todo : consider if this should be recipe or none, if find finds nothing

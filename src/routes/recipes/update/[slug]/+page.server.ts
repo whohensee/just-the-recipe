@@ -20,7 +20,7 @@ export async function load({ params }) {
 	const q1 = await client.query(
 		'SELECT id, title, slug, instructions, imgurl, ingredients FROM recipes'
 	);
-	let recipes = q1.rows ?? [];
+	const recipes = q1.rows ?? [];
 	client.release();
 
 	const recipe: recipe = recipes.find((recipe) => recipe.slug === params.slug);

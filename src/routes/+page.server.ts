@@ -8,7 +8,7 @@ export async function load() {
 	const q1 = await client.query(
 		'SELECT title, slug, instructions, imgurl, ingredients FROM recipes'
 	);
-	let recipes: recipe[] = q1.rows ?? [];
+	const recipes: recipe[] = q1.rows ?? [];
 	client.release();
 	return {
 		recipes
