@@ -6,7 +6,7 @@ client.release();
 
 export function load() {
 	const stats = 'good';
-	let resp1 = resp.rows[0].now ?? 'failed';
+	let resp1: string = resp.rows[0].now ?? 'failed';
 	return {
 		stats,
 		resp1

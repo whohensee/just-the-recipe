@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	let { data } = $props();
 	import { resolve } from '$app/paths';
 	import Instructions from './Instructions.svelte';
@@ -10,7 +10,8 @@
 			confirmDelete = true;
 			return;
 		} else {
-			document.getElementById('deleteform').submit();
+			const form = document.getElementById('deleteform');
+			if (form instanceof HTMLFormElement) form.submit();
 		}
 	}
 	let deletion_pwd = $state('');
@@ -24,7 +25,6 @@
 				<button type="button" class="update">Update</button>
 			</a>
 			<form method="POST" action="?/delete" class="deletion" id="deleteform">
-				<input type="hidden" name="recipe-id" value={data.recipe.id} />
 				<button type="button" class="delete" onclick={deleteButton}>Delete</button>
 				{#if confirmDelete}
 					<div class="pwdHolder">

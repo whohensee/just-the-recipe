@@ -2,6 +2,7 @@ import { fail, redirect } from '@sveltejs/kit';
 import { connectToDB } from '$lib/database/db';
 import { CREATE_PWD } from '$env/static/private';
 import { checkTitleBeforeCreate, checkInstructionsBeforeCreate } from '../../../database/database';
+import type { recipe } from '$lib/types';
 
 async function validateCreate(client, creationValues) {
 	let isOK = true;
@@ -22,7 +23,7 @@ export async function load({ params }) {
 	let recipes = q1.rows ?? [];
 	client.release();
 
-	const recipe = recipes.find((recipe) => recipe.slug === params.slug);
+	const recipe: recipe = recipes.find((recipe) => recipe.slug === params.slug);
 
 	return {
 		recipe

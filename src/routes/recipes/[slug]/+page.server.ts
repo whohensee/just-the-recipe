@@ -1,6 +1,7 @@
 import { connectToDB } from '$lib/database/db';
 import { DELETE_PWD } from '$env/static/private';
 import { redirect, fail } from '@sveltejs/kit';
+import type { recipe } from '$lib/types.js';
 
 export async function load({ params }) {
 	const client = await connectToDB();
@@ -10,7 +11,8 @@ export async function load({ params }) {
 	let recipes = q1.rows ?? [];
 	client.release();
 
-	const recipe = recipes.find((recipe) => recipe.slug === params.slug);
+	// todo : consider if this should be recipe or none, if find finds nothing
+	const recipe: recipe = recipes.find((recipe) => recipe.slug === params.slug);
 
 	return {
 		recipe
