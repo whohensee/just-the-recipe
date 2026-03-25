@@ -7,7 +7,7 @@
 	let ingredients = $state([0]);
 	// TODO: action should be specified what is allowed
 	interface Props {
-		recipe?: recipe;
+		recipe: recipe;
 		form: ActionData;
 		action: string;
 	}
