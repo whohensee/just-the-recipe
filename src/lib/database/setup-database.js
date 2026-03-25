@@ -3,8 +3,8 @@ import 'dotenv/config';
 import { recipes } from '../data/recipes.js';
 
 const pool = new Pool({
-	// connectionString: process.env.RAILWAY_DB_CONN_STRING
-	connectionString: process.env.TEST_DB_CONNSTRING
+	connectionString: process.env.RAILWAY_DB_CONN_STRING
+	// connectionString: process.env.TEST_DB_CONNSTRING
 });
 
 const client = await pool.connect();

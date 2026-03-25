@@ -3,8 +3,8 @@ import 'dotenv/config';
 
 console.log('trying the pool');
 const pool = new Pool({
-	// connectionString: process.env.RAILWAY_DB_CONN_STRING
-	connectionString: process.env.TEST_DB_CONNSTRING
+	connectionString: process.env.RAILWAY_DB_CONN_STRING
+	// connectionString: process.env.TEST_DB_CONNSTRING
 });
 
 console.log('Made the pool');
