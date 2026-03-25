@@ -1,6 +1,10 @@
 <script lang="ts">
-	let { ingredients } = $props();
+	interface Props {
+		ingredients: ingredients;
+	}
+	let { ingredients } : Props = $props();
 	import { theme } from '$lib/themes/basicTheme';
+	import type { ingredients } from '$lib/types';
 </script>
 
 <div class="content" style="--bgcolor: {theme.header_color}">
@@ -12,10 +16,10 @@
 		</thead>
 		<tbody>
 			<!-- eslint-disable-next-line svelte/require-each-key -->
-			{#each Object.entries(ingredients) as [ingredient, amount]}
+			{#each ingredients as ingredient}
 				<tr>
-					<td>{ingredient}</td>
-					<td>{amount}</td>
+					<td>{ingredient.name}</td>
+					<td>{ingredient.amount}</td>
 				</tr>
 			{/each}
 		</tbody>

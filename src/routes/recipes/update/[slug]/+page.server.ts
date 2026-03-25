@@ -2,7 +2,7 @@ import { fail, redirect } from '@sveltejs/kit';
 import { connectToDB } from '$lib/database/db';
 import { CREATE_PWD } from '$env/static/private';
 import { checkTitleBeforeCreate, checkInstructionsBeforeCreate } from '../../../database/database';
-import type { recipe } from '$lib/types';
+import type { ingredients, recipe } from '$lib/types';
 
 async function validateCreate(client, creationValues) {
 	let isOK = true;
@@ -57,9 +57,13 @@ export const actions = {
 		}
 		instructions['intro'] = data.get('recipe-blurb');
 
-		const ingredients = {};
+        // issue: this code is not DRY with create.
+		const ingredients: ingredients = [];
 		for (let i = 0; i < Number(data.get('ingredient-count')); i++) {
-			ingredients[String(data.get('ingred-' + i))] = String(data.get('ingred-amount-' + i));
+			ingredients.push({
+				name: String(data.get('ingred-' + i)),
+				amount: String(data.get('ingred-amount-' + i))
+			});
 		}
 
 		const client = await connectToDB();

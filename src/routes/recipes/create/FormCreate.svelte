@@ -112,7 +112,7 @@
 						class="ingredients"
 						name="ingred-{step}"
 						autocomplete="off"
-						value={recipe ? Object.keys(recipe.ingredients)[i] : ''}
+						value={recipe?.ingredients[i]?.name ?? ''}
 						required
 					/>
 				</div>
@@ -123,7 +123,7 @@
 						class="ingredients"
 						name="ingred-amount-{step}"
 						autocomplete="off"
-						value={recipe ? Object.values(recipe.ingredients)[i] : ''}
+						value={recipe?.ingredients[i]?.amount ?? ''}
 						required
 					/>
 				</div>
