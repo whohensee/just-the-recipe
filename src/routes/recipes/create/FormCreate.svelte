@@ -79,7 +79,7 @@
 		{#each instructions as step, i (step)}
 			<div class="question">
 				<label class="sublabel" for="step-{step}">Step {i + 1}</label>
-				<textarea name="step-{step}" value={recipe?.instructions.steps[i] ?? ''} required
+				<textarea name="step-{step}" value={recipe?.instructions.steps.length > i ? recipe.instructions.steps[i] : ''} required
 				></textarea>
 			</div>
 		{/each}
@@ -112,7 +112,7 @@
 						class="ingredients"
 						name="ingred-{step}"
 						autocomplete="off"
-						value={recipe?.ingredients[i]?.name ?? ''}
+						value={recipe?.ingredients.length > i ? recipe.ingredients[i].name : ''}
 						required
 					/>
 				</div>
@@ -123,7 +123,7 @@
 						class="ingredients"
 						name="ingred-amount-{step}"
 						autocomplete="off"
-						value={recipe?.ingredients[i]?.amount ?? ''}
+						value={recipe?.ingredients.length > i ? recipe.ingredients[i].amount : ''}
 						required
 					/>
 				</div>
