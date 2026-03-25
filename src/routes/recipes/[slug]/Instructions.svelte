@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	let { instructions } = $props();
 	import { theme } from '$lib/themes/basicTheme';
 </script>
