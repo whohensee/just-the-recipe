@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	import { resolve } from '$app/paths';
 	import { theme } from '$lib/themes/basicTheme';
 </script>

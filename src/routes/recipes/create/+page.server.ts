@@ -6,6 +6,7 @@ import {
 	checkTitleBeforeCreate,
 	checkInstructionsBeforeCreate
 } from '../../database/database';
+import type { ingredients } from '$lib/types';
 
 async function validateCreate(client, creationValues) {
 	let isOK = true;
@@ -42,14 +43,17 @@ export const actions = {
 		console.log(data);
 		const instructions = {};
 		instructions['steps'] = [];
-		for (let i = 0; i < data.get('instruction-count'); i++) {
+		for (let i = 0; i < Number(data.get('instruction-count')); i++) {
 			instructions['steps'].push(data.get('step-' + i));
 		}
 		instructions['intro'] = data.get('recipe-blurb');
 
-		const ingredients = {};
-		for (let i = 0; i < data.get('ingredient-count'); i++) {
-			ingredients[data.get('ingred-' + i)] = data.get('ingred-amount-' + i);
+		const ingredients : ingredients = [];
+		for (let i = 0; i < Number(data.get('ingredient-count')); i++) {
+			ingredients.push( {
+				name: String(data.get('ingred-' + i)),
+				amount: String(data.get('ingred-amount-' + i))
+			})
 		}
 
 		const client = await connectToDB();

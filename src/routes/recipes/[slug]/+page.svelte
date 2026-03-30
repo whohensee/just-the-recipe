@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
 	let { data } = $props();
 	import { resolve } from '$app/paths';
 	import Instructions from './Instructions.svelte';
@@ -10,7 +10,8 @@
 			confirmDelete = true;
 			return;
 		} else {
-			document.getElementById('deleteform').submit();
+			const form = document.getElementById('deleteform');
+			if (form instanceof HTMLFormElement) form.submit();
 		}
 	}
 	let deletion_pwd = $state('');

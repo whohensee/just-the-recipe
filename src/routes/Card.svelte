@@ -1,13 +1,14 @@
-<script>
+<script lang="ts">
 	import { resolve } from '$app/paths';
 	import { theme } from '$lib/themes/basicTheme';
-	let { recipe } = $props();
+	import type { recipe } from '$lib/types';
+	let { recipe }: { recipe: recipe } = $props();
 </script>
 
 <div class="card" style="--card-color: {theme.content_color}">
 	<img src="/favicon.svg" alt="food" />
 	<h1>{recipe.title}</h1>
-	<a href={resolve('./recipes/[slug]', { slug: recipe.slug })}><button>View</button></a>
+	<a href={resolve('/recipes/[slug]', { slug: recipe.slug })}><button>View</button></a>
 </div>
 
 <style>

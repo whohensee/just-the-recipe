@@ -1,9 +1,17 @@
-<script>
+<script lang="ts">
 	import { theme } from '$lib/themes/basicTheme';
+	import type { recipe } from '$lib/types';
+	import type { ActionData } from './$types';
 	// a deeply reactive array, ideally
 	let instructions = $state([0]);
 	let ingredients = $state([0]);
-	let { form, action, recipe } = $props();
+	// TODO: action should be specified what is allowed
+	interface Props {
+		recipe: recipe;
+		form: ActionData;
+		action: string;
+	}
+	let { form, action, recipe }: Props = $props();
 
 	// ensure instructions length matches recipe steps length
 	if (recipe) {
@@ -64,14 +72,14 @@
 			<button
 				type="button"
 				onclick={() => {
-					instructions.pop(instructions.length);
+					instructions.pop();
 				}}>Remove</button
 			>
 		</div>
 		{#each instructions as step, i (step)}
 			<div class="question">
-				<label class="sublabel" for="step-{step}">Step {i + 1}{step.id}</label>
-				<textarea name="step-{step}" value={recipe?.instructions.steps[i] ?? ''} required
+				<label class="sublabel" for="step-{step}">Step {i + 1}</label>
+				<textarea name="step-{step}" value={recipe?.instructions.steps.length > i ? recipe.instructions.steps[i] : ''} required
 				></textarea>
 			</div>
 		{/each}
@@ -90,7 +98,7 @@
 			<button
 				type="button"
 				onclick={() => {
-					ingredients.pop(ingredients.length);
+					ingredients.pop();
 				}}>Remove</button
 			>
 		</div>
@@ -104,7 +112,7 @@
 						class="ingredients"
 						name="ingred-{step}"
 						autocomplete="off"
-						value={recipe ? Object.keys(recipe.ingredients)[i] : ''}
+						value={recipe?.ingredients.length > i ? recipe.ingredients[i].name : ''}
 						required
 					/>
 				</div>
@@ -115,7 +123,7 @@
 						class="ingredients"
 						name="ingred-amount-{step}"
 						autocomplete="off"
-						value={recipe ? Object.values(recipe.ingredients)[i] : ''}
+						value={recipe?.ingredients.length > i ? recipe.ingredients[i].amount : ''}
 						required
 					/>
 				</div>
@@ -123,8 +131,8 @@
 		{/each}
 	</div>
 
-	<input type="hidden" name="instruction-count" value={instructions.length} />
-	<input type="hidden" name="ingredient-count" value={ingredients.length} />
+	<input type="number" hidden name="instruction-count" value={instructions.length} />
+	<input type="number" hidden name="ingredient-count" value={ingredients.length} />
 	<input type="hidden" name="recipe-id" value={recipe?.id ?? ''} />
 
 	<button>Submit</button>

@@ -1,8 +1,9 @@
-<script>
+<script lang="ts">
 	import { theme } from '$lib/themes/basicTheme';
+	import type { PageProps } from './$types.js';
 	import FormCreate from './FormCreate.svelte';
-	let { form } = $props();
-	let action = 'create';
+	let { form }: PageProps = $props();
+	let action: string = 'create';
 </script>
 
 <div class="content" style="--bg-color: {theme.header_color}">
@@ -11,7 +12,7 @@
 	</div>
 
 	<div class="formWrapper">
-		<FormCreate {form} {action} />
+		<FormCreate {form} {action} recipe={null}/>
 	</div>
 </div>
 

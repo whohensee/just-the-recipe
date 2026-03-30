@@ -1,50 +1,22 @@
 # Just The Recipe
 
-This site, built from the basic Svelte 5 template, will be a simple recipe website, designed to present just the basic tools needed for a recipe with none of the fluff. It will begin as a static site that just presents the information nicely. Then it will evolve to include some more features including:
+## This project is live
 
-- shopping list generator
-- CRUD operations
-- user accounts and sessions
+**Check out the online website here:** https://just-the-recipe-production.up.railway.app/
 
-Fixes:
+## Project Details
 
-- Prevent long names from bleeding out in the cards (e.g. Quinoaoaoaoaoaoaoa)
+Just The Recipe is a straightforward, fully functional recipe-sharing website built using Svelte 5 and communicating with a PostgreSQL database to store recipe information. It has been designed mostly to demonstrate back-end techniques and technologies, and implements a basic and performant user-facing UI.
 
-# sv
+Feel free to explore the site using the link at the top of this document.
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+This project is coded entirely by hand, with zero usage of AI for any aspect of development, including but not limited to code-generation, image-generation, filler text, or inspiration.
 
-## Creating a project
+Some interesting features that have been implemented are:
 
-If you're seeing this, you've probably already done this step. Congrats!
-
-```sh
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
-```
-
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
-
-```sh
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
-```
-
-## Building
-
-To create a production version of your app:
-
-```sh
-npm run build
-```
-
-You can preview the production build with `npm run preview`.
-
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+- CRUD operations.
+  - Create (a new recipe to store in the DB)
+  - Read (a recipe from the DB to generate its webpage)
+  - Update (a recipe with new information to store in the DB)
+  - DELETE (a recipe from the face of this... DB).
+- Template recipe pages. No recipe page is hard coded - it is all generated based on the information stored in the DB.
