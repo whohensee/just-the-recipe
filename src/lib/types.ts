@@ -12,6 +12,9 @@ export interface instructions {
 	intro: string;
 }
 
-export interface ingredients {
-	[index: string]: string;
+export interface ingredient {
+	name: string;
+	amount: string;
 }
+
+export type ingredients = ingredient[];
