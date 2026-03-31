@@ -57,7 +57,7 @@ export const actions = {
 		}
 		instructions['intro'] = data.get('recipe-blurb');
 
-        // issue: this code is not DRY with create.
+		// issue: this code is not DRY with create.
 		const ingredients: ingredients = [];
 		for (let i = 0; i < Number(data.get('ingredient-count')); i++) {
 			ingredients.push({

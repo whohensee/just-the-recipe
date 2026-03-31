@@ -1,10 +1,9 @@
 import { Pool } from 'pg';
-import 'dotenv/config';
+import { env } from '$env/dynamic/private';
 
 console.log('trying the pool');
 const pool = new Pool({
-	connectionString: process.env.RAILWAY_DB_CONN_STRING
-	// connectionString: process.env.TEST_DB_CONNSTRING
+	connectionString: env.RAILWAY_DB_CONN_STRING
 });
 
 console.log('Made the pool');

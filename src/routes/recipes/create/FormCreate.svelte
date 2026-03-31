@@ -79,7 +79,10 @@
 		{#each instructions as step, i (step)}
 			<div class="question">
 				<label class="sublabel" for="step-{step}">Step {i + 1}</label>
-				<textarea name="step-{step}" value={recipe?.instructions.steps.length > i ? recipe.instructions.steps[i] : ''} required
+				<textarea
+					name="step-{step}"
+					value={recipe?.instructions.steps.length > i ? recipe.instructions.steps[i] : ''}
+					required
 				></textarea>
 			</div>
 		{/each}
