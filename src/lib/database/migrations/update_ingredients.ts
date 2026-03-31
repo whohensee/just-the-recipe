@@ -1,17 +1,21 @@
 import { Pool } from 'pg';
-import 'dotenv/config';
+import { env } from '$env/dynamic/private';
 import type { ingredients } from '$lib/types';
 
 const pool = new Pool({
-	connectionString: process.env.RAILWAY_DB_CONN_STRING
+	connectionString: env.RAILWAY_DB_CONN_STRING
 });
 
 const client = await pool.connect();
 
 const TABLE_NAME = 'recipes';
 
-function turn_old_ingredients_into_new(old_ingred) {
-	const new_ingred = [];
+export interface old_ingredient {
+	[index: string]: string;
+}
+
+function turn_old_ingredients_into_new(old_ingred: old_ingredient) {
+	const new_ingred: ingredients = [];
 	for (const [key, value] of Object.entries(old_ingred)) {
 		new_ingred.push({
 			name: key,
@@ -25,7 +29,7 @@ try {
 	const qstring = 'SELECT id, ingredients FROM ' + TABLE_NAME;
 
 	console.log(qstring);
-	let result = await client.query(qstring);
+	const result = await client.query(qstring);
 	console.log('Query successful');
 
 	await client.query('BEGIN');
