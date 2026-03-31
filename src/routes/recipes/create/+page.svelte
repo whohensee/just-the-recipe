@@ -12,7 +12,7 @@
 	</div>
 
 	<div class="formWrapper">
-		<FormCreate {form} {action} recipe={null}/>
+		<FormCreate {form} {action} recipe={null} />
 	</div>
 </div>
 

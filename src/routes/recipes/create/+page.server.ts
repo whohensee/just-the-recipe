@@ -48,12 +48,12 @@ export const actions = {
 		}
 		instructions['intro'] = data.get('recipe-blurb');
 
-		const ingredients : ingredients = [];
+		const ingredients: ingredients = [];
 		for (let i = 0; i < Number(data.get('ingredient-count')); i++) {
-			ingredients.push( {
+			ingredients.push({
 				name: String(data.get('ingred-' + i)),
 				amount: String(data.get('ingred-amount-' + i))
-			})
+			});
 		}
 
 		const client = await connectToDB();
