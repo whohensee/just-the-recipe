@@ -2,7 +2,7 @@
 	interface Props {
 		ingredients: ingredients;
 	}
-	let { ingredients } : Props = $props();
+	let { ingredients }: Props = $props();
 	import { theme } from '$lib/themes/basicTheme';
 	import type { ingredients } from '$lib/types';
 </script>

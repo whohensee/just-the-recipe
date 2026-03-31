@@ -1,10 +1,9 @@
 import { Pool } from 'pg';
-import 'dotenv/config';
 import { recipes } from '../data/recipes-v2.js';
+import { env } from '$env/dynamic/private';
 
 const pool = new Pool({
-	connectionString: process.env.RAILWAY_DB_CONN_STRING
-	// connectionString: process.env.TEST_DB_CONNSTRING
+	connectionString: env.RAILWAY_DB_CONN_STRING
 });
 
 const client = await pool.connect();
